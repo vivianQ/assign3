@@ -22,12 +22,12 @@ void setup(){
   size(640,480);
   bx1=0;
 //  hp=floor(random(200));
-  tx=floor(random(640));
-  ty=floor(random(480));
+  tx=floor(random(600));
+  ty=floor(random(440));
   ex=-420;
-  ey=floor(random(480));
-  fx=floor(random(640));
-  fy=floor(random(480));
+  ey=floor(random(420));
+  fx=floor(random(630));
+  fy=floor(random(430));
   bg1img= loadImage("img/bg1.png");
   bg2img= loadImage("img/bg2.png");
   enemyimg= loadImage("img/enemy.png");
@@ -73,12 +73,12 @@ void draw(){
         gameState= GAME_OVER; 
       }
        //
-      if(get!=1) 
+if(get!=1) 
       {
          image(treasureimg,tx,ty );
       } else {
         tx=floor(random(640));
-        ty=floor(random(480));
+        ty=floor(random(440));
         image(treasureimg,tx,ty);
         get=0;
       }
@@ -114,20 +114,21 @@ void draw(){
         fy=height;
       }
       //
-      if(hit!=1) {
-        
-        for(i=0;i<5;i++){
-         image(enemyimg,ex+70*i,ey);
+ if(hit!=1) {    
+        for(i=0;i<10;i++){
+        if(i<5){
+          image(enemyimg,ex+70*i,ey);
         }
-        ex+=3;
-      if(ex>640){
-         ey=floor(random(480));
+      /*  if(i>=5&&i<10){
+          image(enemyimg,ex-1480+70*i,ey-50*(i-4));
+        }*/
+   } 
+           ex+=3;
+        if(ex>640){
+         ey=floor(random(420));
          ex=-420;
         }
         ex %= 640;
-        
-         
-    
   }
       //
     break;  
